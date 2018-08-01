@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>系统基本参数</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="{?__VENDOR__?}layui/css/layui.css" media="all"/>
+    <style type="text/css">
+        .layui-table td, .layui-table th {
+            text-align: center;
+        }
+
+        .layui-table td {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body class="childrenBody">
+<form class="layui-form" id="form" action="{?U('admin/main/system')?}">
+    <table class="layui-table">
+        <colgroup>
+            <col width="20%">
+            <col width="50%">
+            <col>
+        </colgroup>
+        <thead>
+        <tr>
+            <th>参数说明</th>
+            <th>参数值</th>
+            <th>变量名</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>公告</td>
+            <td><textarea name="message" rows="8" placeholder="请输入公告" class="layui-textarea" style="resize:none">{?$message?}</textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>专题链接</td>
+            <td><input type="text" class="layui-input cmsName" name="themelink" value="{?$themelink?}"
+                       placeholder="当前值：{?$themelink?}"></td>
+        </tr>
+        <tr>
+            <td>服务连接</td>
+            <td><input type="text" class="layui-input cmsName" name="splink" value="{?$splink?}"
+                       placeholder="当前值：{?$splink?}"></td>
+        </tr>
+        <tr>
+            <td>允许上传大小(单位:kb)</td>
+            <td><input type="text" class="layui-input cmsName" name="ALLOW_UPLOAD_SIZE"
+                       placeholder="当前值：{?$ALLOW_UPLOAD_SIZE/1024?}"></td>
+            <td>ALLOW_UPLOAD_SIZE</td>
+        </tr>
+        <tr>
+            <td>允许上传类型</td>
+            <td><input type="text" class="layui-input version" name="ALLOW_UPLOAD_TYPE"
+                       placeholder="当前值：{?$ALLOW_UPLOAD_TYPE?}"></td>
+            <td>ALLOW_UPLOAD_TYPE</td>
+        </tr>
+        <tr>
+            <td>默认模块</td>
+            <td><input type="text" class="layui-input author" name="DEFAULT_MODULE"
+                       placeholder="当前值：{?$DEFAULT_MODULE?}"></td>
+            <td>DEFAULT_MODULE</td>
+        </tr>
+        <tr>
+            <td>默认控制器</td>
+            <td><input type="text" class="layui-input homePage" name="DEFAULT_CONTROLLER"
+                       placeholder="当前值：{?$DEFAULT_CONTROLLER?}">
+            </td>
+            <td>DEFAULT_CONTROLLER</td>
+        </tr>
+        <tr>
+            <td>默认方法</td>
+            <td><input type="text" class="layui-input server" name="DEFAULT_ACTION"
+                       placeholder="当前值：{?$DEFAULT_ACTION?}"></td>
+            <td>DEFAULT_ACTION</td>
+        </tr>
+        <tr>
+            <td>安全模式</td>
+            <td><input type="checkbox" lay-skin="switch" lay-filter="safemode" lay-text="开启|关闭" {?if
+                       $safemode==1?}checked{?/if?} value="1"></td>
+            <td>安全模式下页面数据将在指定数量下渲染</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="layui-form-item" style="text-align: right;margin-right:1%">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="systemParameter">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+</body>
+<script type="text/javascript">
+    var url_jsbase = "{?__STATIC__?}js/main/";
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="{?__VENDOR__?}/js/jquery.form.js"></script>
+<script type="text/javascript" src="{?__VENDOR__?}layui/layui.js"></script>
+<script type="text/javascript" src="{?__STATIC__?}js/main/systemParameter.js"></script>
+</html>

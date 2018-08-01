@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>编辑</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="{?__VENDOR__?}layui/css/layui.css" media="all"/>
+    <script>
+        var edit_id = "{?$id?}";
+    </script>
+    <style type="text/css">
+        .layui-form-item .layui-inline {
+            width: 33.333%;
+            float: left;
+            margin-right: 0;
+        }
+
+        @media (max-width: 1240px) {
+            .layui-form-item .layui-inline {
+                width: 100%;
+                float: none;
+            }
+        }
+    </style>
+</head>
+<body class="childrenBody">
+<form class="layui-form uper-form layui-form-pane ajax-box" ajax-id="1" id="form" action="{?U('admin/user/editright')?}"
+      style="width:80%;margin:2% auto;">
+</form>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://unpkg.com/qiniu-js@2.2.2/dist/qiniu.min.js"></script>
+<script src="{?__STATIC__?}../vendor/config/uper.config.js"></script>
+<script src="{?__STATIC__?}../vendor/js/myuploader.js"></script>
+<script src="https://cdn.bootcss.com/handlebars.js/4.0.11/handlebars.js"></script>
+<script src="{?__STATIC__?}../vendor/config/myajax.config.js"></script>
+<script src="{?__STATIC__?}../vendor/js/myajax.js"></script>
+<script src="{?__VENDOR__?}/js/jquery.form.js"></script>
+<script type="text/javascript" src="{?__VENDOR__?}layui/layui.js"></script>
+<script type="text/javascript" src="{?__STATIC__?}js/user/editright.js"></script>
+</body>
+<script class="ajax-tpl" ajax-id="1" type="text/x-handlebars-template">
+    <input type="hidden" name="id" value="{{id}}">
+    <div class="layui-form-item" pane>
+        <label class="layui-form-label">角色名</label>
+        <div class="layui-input-block">
+            <input type="text" class="layui-input" name="name" lay-verify="required|username"
+                   placeholder="请输入用户名" value="{{name}}">
+        </div>
+    </div>
+    <div class="layui-form-item" pane>
+        <label class="layui-form-label">权限</label>
+        <div class="layui-input-inline">
+            <input type="checkbox" name="systeminfo" title="系统信息权限" lay-skin="primary" {{#compare systeminfo "=="
+            "on"}}checked{{/compare}}>
+        </div>
+        <div class="layui-input-inline">
+            <input type="checkbox" name="usercontroller" title="用户权限" lay-skin="primary" {{#compare usercontroller "=="
+            "on"}}checked{{/compare}}>
+        </div>
+    </div>
+    {?if $self == 1?}
+    <div class="layui-form-item" pane>
+        <label class="layui-form-label">状态</label>
+        <div class="layui-input-block">
+            <input type="checkbox" name="status" lay-skin="switch" lay-filter="status" lay-text="启用|禁用" {{#compare
+                   status '==' '1'}}checked{{/compare}} value="1">
+        </div>
+    </div>
+    {?/if?}
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="add">立即提交</button>
+            <a href="javascript:;" id="reset" onclick="box1.rander();" class="layui-btn layui-btn-primary">重置</a>
+            <a href="{?U('admin/user/allright')?}" class="layui-btn layui-btn-primary">返回</a>
+        </div>
+    </div>
+</script>
+</html>

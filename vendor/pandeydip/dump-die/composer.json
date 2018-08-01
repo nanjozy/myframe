@@ -1,0 +1,24 @@
+{
+  "name": "pandeydip/dump-die",
+  "description": "Uses Symfony var dumper and use die to dump and stop code execution",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Deepak Pandey",
+      "email": "er.pandeydip@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.6",
+    "symfony/var-dumper": "~3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Dump\\": "src/"
+    },
+    "files": [
+      "src/Misc/helpers.php"
+    ]
+  }
+}
